@@ -9,18 +9,18 @@
         window.addEventListener('wheel', function(e) {
             var ishElement = document.getElementById('ish');
             var rect = ishElement.getBoundingClientRect();
-            var isScrollingDown = e.deltaY > 0;
+            var isScrollingDown = e.deltaY < 0;
+            var newPosition = isScrollingDown ? position + 5 : position - 5;
 
-            position = isScrollingDown ? position + 5 : position - 5;
-
-            if (isScrollingDown && position > rect.height) {
+            if (isScrollingDown && newPosition > rect.height) {
                 return;
-            } else if (!isScrollingDown && position < 0) {
+            } else if (!isScrollingDown && newPosition < 0) {
                 return;
             }
+
+            position = newPosition;
 
             ishElement.style.bottom = -position + 'px';
         });
     </script>
 </body>
-
