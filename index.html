@@ -1,6 +1,26 @@
-<body style="margin: 0;">
-    <div style="display: flex; align-items: center; justify-content: center; width: 100%; position: absolute; bottom: 0;">
+<body style="margin: 0; overflow: hidden;">
+    <div id="ish" style="display: flex; align-items: center; justify-content: center; width: 100%; position: absolute; bottom: 0;">
         <img src="./ish.png"/>
     </div>
+
+    <script>
+        let position = 0;
+
+        window.addEventListener('wheel', function(e) {
+            var ishElement = document.getElementById('ish');
+            var rect = ishElement.getBoundingClientRect();
+            var isScrollingDown = e.deltaY > 0;
+
+            position = isScrollingDown ? position + 5 : position - 5;
+
+            if (isScrollingDown && position > rect.height) {
+                return;
+            } else if (!isScrollingDown && position < 0) {
+                return;
+            }
+
+            ishElement.style.bottom = -position + 'px';
+        });
+    </script>
 </body>
 
