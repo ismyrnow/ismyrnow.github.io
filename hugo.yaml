@@ -1,0 +1,15 @@
+baseURL: https://ish.lol/
+languageCode: en-us
+title: ish.lol
+theme: PaperMod
+params:
+  homeInfoParams:
+    Title: Hi there! I'm Ishmael Smyrnow 👋
+    Content: |
+      I like to create things. When necessary, I use code.
+
+  socialIcons:
+    - name: GitHub
+      url: "https://github.com/ismyrnow"
+    - name: LinkedIn
+      url: "https://www.linkedin.com/in/ishmael-smyrnow-3420649"
